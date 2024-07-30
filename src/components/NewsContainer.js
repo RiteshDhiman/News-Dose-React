@@ -71,7 +71,7 @@ export default class NewsContainer extends Component {
         <div className={`font-bold text-center py-10 text-4xl text-white`}>{this.props.heading} - News</div>
         {this.state.loading && <Spinner/>}
         <div className='w-3/4 my-6 mx-auto grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-12'>
-          {this.state.articles.map((element) => {
+          {this?.state?.articles?.map((element) => {
             return <NewsItem key={element.url} title={element.title} desc={element.description} imageUrl={element.urlToImage == null ? 'https://salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled-1150x647.png' : element.urlToImage} newsUrl={element.url} />
           })}
         </div>
