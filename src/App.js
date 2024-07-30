@@ -20,50 +20,50 @@ export default class App extends Component {
 
   finaldata = '';
 
-  APIKEY = '09002a01dc6b344c3e0c16e9f9c737be';
+  // // APIKEY = '09002a01dc6b344c3e0c16e9f9c737be';
 
-  fetchWeather = async (latitude, longitude) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${this.APIKEY}`;
-    let data = await fetch(url);
-    let parsedData = await data.json();
+  // fetchWeather = async (latitude, longitude) => {
+  //   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${this.APIKEY}`;
+  //   let data = await fetch(url);
+  //   let parsedData = await data.json();
 
-    let {name, dt, main, coord} = parsedData;
+  //   let {name, dt, main, coord} = parsedData;
 
-    this.setState({
-      coordi : coord,
-      name : name,
-      date : dt,
-      temp : main.temp,
-      weather : parsedData.weather[0],
-    })
-    // console.log(parsedData);
-    // this.finaldata = parsedData;
-    // return parsedData;
-  }
+  //   this.setState({
+  //     coordi : coord,
+  //     name : name,
+  //     date : dt,
+  //     temp : main.temp,
+  //     weather : parsedData.weather[0],
+  //   })
+  //   // console.log(parsedData);
+  //   // this.finaldata = parsedData;
+  //   // return parsedData;
+  // }
 
   render() {
 
-    let lat = 0;
-    let long = 0;
+    // let lat = 0;
+    // let long = 0;
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          lat = position.coords.latitude;
-          long = position.coords.longitude;
-          this.fetchWeather(lat, long);
-          // console.log(typeof(lat));
-        }, (error) => {
-          console.log(error.message);
-        })
-    }
+    // if (navigator.geolocation) {
+    //   navigator.geolocation.getCurrentPosition(
+    //     (position) => {
+    //       lat = position.coords.latitude;
+    //       long = position.coords.longitude;
+    //       this.fetchWeather(lat, long);
+    //       // console.log(typeof(lat));
+    //     }, (error) => {
+    //       console.log(error.message);
+    //     })
+    // }
 
 
     return (
       <>
         <Navbar />
         <NewsCategories />
-        <Weather weather = {this.state.weather} coordinates = {this.state.coordi} city = {this.state.name} date = {this.state.date} temp = {this.state.temp} coord = {this.state.weather}/>
+        {/* <Weather weather = {this.state.weather} coordinates = {this.state.coordi} city = {this.state.name} date = {this.state.date} temp = {this.state.temp} coord = {this.state.weather}/> */}
         <Router>
           <Routes>
             <Route path='/' element={<NewsContainer pageSize={12} category='' heading='Top Headlines' />} />
