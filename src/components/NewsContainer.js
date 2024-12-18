@@ -21,7 +21,7 @@ export default class NewsContainer extends Component {
 
 
   async componentDidMount() {
-    let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=48f70e34774e4688894b6bae76eef555&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?category=${this.props.category}&apiKey=48f70e34774e4688894b6bae76eef555&page=${this.state.page}&pageSize=${this.props.pageSize}`;
 
     this.setState({
       loading : true,
